@@ -2,7 +2,7 @@
 
 shows all the gitches on a worldmap
 
-markers are set in js/map.js
+markers are set in [js/map.js](https://github.com/bullgit/map/blob/gh-pages/js/map.js)
 
 view the map at http://bullg.it/map
 
