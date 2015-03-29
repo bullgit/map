@@ -97,12 +97,12 @@ var gitches = [
   {
     "name": "Clément",
     "github": "clementgalidie",
-    "latlon": [48.856614, 2.3522219]
+    "latlon": [48.861417, 2.536463]
   },
   {
     "name": "Haroen",
     "github": "haroenv",
-    "latlon": [51.209348, 3.2246995]
+    "latlon": [51.21996787685509, 3.2211304939333743]
   }
 ]
 
@@ -112,21 +112,21 @@ for (var i = 0; i < gitches.length; i++) {
 
   var gitch = gitches[i];
   var id = JSON.stringify( gitch.latlon );
-  
+
   if (markers[id]) {
-    
+
     var popupcontent = markers[id].getPopup().getContent();
     markers[id].getPopup().setContent( popupcontent + '<br>' +
       gitch.name.link('https://github.com/' + gitch.github ));
-    
+
   } else {
-  
+
     var marker = L.marker( gitch.latlon, {icon: monstrIcon} );
     marker.bindPopup( gitch.name.link('https://github.com/' + gitch.github) );
     marker.addTo(map);
-    
+
     markers[id] = marker;
-    
+
   }
 
 }
