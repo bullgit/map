@@ -62,7 +62,7 @@ var gitches = [
   {
     "name": "Nils",
     "github": "schoenwaldnils",
-    "latlon": [53.8654673, 10.6865593]
+    "latlon": [53.553407, 9.992196]
   },
   {
     "name": "Olly",
