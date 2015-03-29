@@ -13,16 +13,123 @@ popupAnchor:  [0, -35]
 });
 
 // locations of tha gitches
-var marker = L.marker([51.48138, 10.30518], {icon: monstrIcon}).bindPopup('Germany').addTo(map);
-var marker = L.marker([47.544, 3.131], {icon: monstrIcon}).bindPopup('France').addTo(map);
-var marker = L.marker([47.98992, 16.17188], {icon: monstrIcon}).bindPopup('Austria').addTo(map);
-var marker = L.marker([52.80276, -1.93359], {icon: monstrIcon}).bindPopup('UK').addTo(map);
-var marker = L.marker([23.40276, 78.92578], {icon: monstrIcon}).bindPopup('India').addTo(map);
-var marker = L.marker([4.03962, -70.82812], {icon: monstrIcon}).bindPopup('Colombia').addTo(map);
-var marker = L.marker([42.09822, 43.59375], {icon: monstrIcon}).bindPopup('Georgia').addTo(map);
-var marker = L.marker([51.213162, 3.222145], {icon: monstrIcon}).bindPopup('Belgium').addTo(map);
-var marker = L.marker([36.73888, -118.8828], {icon: monstrIcon}).bindPopup('USA, California').addTo(map);
-var marker = L.marker([40.31304, -82.88086], {icon: monstrIcon}).bindPopup('USA, Ohio').addTo(map);
+var gitches = [
+  {
+    "name": "Jan",
+    "github": "reimersjan",
+    "latlon": [53.553407, 9.992196]
+  },
+  {
+    "name": "Tim",
+    "github": "timpietrusky",
+    "latlon": [50.1109221, 8.6821267]
+  },
+  {
+    "name": "Kevin",
+    "github": "kevingimbel",
+    "latlon": [50.0123996, 8.4217125]
+  },
+  {
+    "name": "Max",
+    "github": "myxotod",
+    "latlon": [49.9928617, 8.2472526]
+  },
+  {
+    "name": "Luky",
+    "github": "LukyVj",
+    "latlon": [48.856614, 2.3522219]
+  },
+  {
+    "name": "Felix",
+    "github": "dervondenbergen",
+    "latlon": [48.2081743, 16.3738189]
+  },
+  {
+    "name": "Kanu",
+    "github": "krman009",
+    "latlon": [22.3038945, 70.8021599]
+  },
+  {
+    "name": "Hugo",
+    "github": "DarbyBrown",
+    "latlon": [50.82253, -0.137163]
+  },
+  {
+    "name": "Scott",
+    "github": "scottnix",
+    "latlon": [32.715738, -117.1610838]
+  },
+  {
+    "name": "Nils",
+    "github": "schoenwaldnils",
+    "latlon": [53.8654673, 10.6865593]
+  },
+  {
+    "name": "Olly",
+    "github": "0x04",
+    "latlon": [47.8966802, 10.4151477]
+  },
+  {
+    "name": "Nick",
+    "github": "shvelo",
+    "latlon": [47.8966802, 10.4151477]
+  },
+  {
+    "name": "Ty",
+    "github": "tystrong",
+    "latlon": [39.440336, -84.3621634]
+  },
+  {
+    "name": "José",
+    "github": "jofpin",
+    "latlon": [4.598056, -74.075833]
+  },
+  {
+    "name": "Leeroyd",
+    "github": "leeroyd",
+    "latlon": [48.856614, 2.3522219]
+  },
+  {
+    "name": "Tim",
+    "github": "timbog80",
+    "latlon": [45.815115, -122.7426009]
+  },
+  {
+    "name": "Clément",
+    "github": "clementgalidie",
+    "latlon": [48.856614, 2.3522219]
+  },
+  {
+    "name": "Haroen",
+    "github": "haroenv",
+    "latlon": [51.209348, 3.2246995]
+  }
+]
+
+var markers = {};
+
+for (var i = 0; i < gitches.length; i++) {
+
+  var gitch = gitches[i];
+  var id = JSON.stringify( gitch.latlon );
+  
+  if (markers[id]) {
+    
+    var popupcontent = markers[id].getPopup().getContent();
+    markers[id].getPopup().setContent( popupcontent + '<br>' +
+      gitch.name.link('https://github.com/' + gitch.github ));
+    
+  } else {
+  
+    var marker = L.marker( gitch.latlon, {icon: monstrIcon} );
+    marker.bindPopup( gitch.name.link('https://github.com/' + gitch.github) );
+    marker.addTo(map);
+    
+    markers[id] = marker;
+    
+  }
+
+}
 
 // helper to find LonLat by click
 //function onMapClick(e) {
