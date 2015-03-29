@@ -9,7 +9,7 @@ iconUrl: 'img/iconmonstr-location-icon-32.png',
 
 iconSize:     [32, 32],
 iconAnchor:   [16, 32],
-popupAnchor:  [-16, -35]
+popupAnchor:  [0, -35]
 });
 
 // locations of tha gitches
