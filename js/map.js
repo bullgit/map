@@ -36,7 +36,7 @@ for (var i = 0; i < gitches.length; i++) {
 
   } else {
 
-    var marker = L.marker( gitch.latlon, {icon: monstrIcon} );
+    var marker = L.marker( gitch.latlon, {icon: gitch.gravatar} );
     marker.bindPopup( gitch.name.link('https://github.com/' + gitch.github) );
     marker.addTo(map);
 
