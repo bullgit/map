@@ -3,7 +3,3 @@ html, body, #map {
   height: 100%;
   margin: 0;
 }
-
-.leaflet-marker-icon {
-  border-radius: 999px;
-}
