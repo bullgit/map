@@ -31,9 +31,9 @@ for (var i = 0; i < gitches.length; i++) {
   var gitchIcon = L.icon({
   iconUrl: gitch.gravatar,
 
-  iconSize:     [32, 32],
-  iconAnchor:   [16, 16],
-  popupAnchor:  [0, -35]
+  iconSize:     [50, 50],
+  iconAnchor:   [25, 25],
+  popupAnchor:  [0, -25]
   });
 
   if (markers[id]) {
