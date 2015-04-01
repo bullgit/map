@@ -14,7 +14,7 @@ popupAnchor:  [0, -35]
 
 // get locations of tha gitches via ajax
 var xhr = new XMLHttpRequest();
-xhr.open('GET', 'github.com/bullgit/bullgit.github.io/blob/master/members.json');
+xhr.open('GET', '/members.json');
 xhr.send();
 
 var markers = {};
@@ -26,21 +26,18 @@ var gitches = JSON.parse( xhr.responseText ).gitches;
 for (var i = 0; i < gitches.length; i++) {
 
   var gitch = gitches[i];
-  var gitch_avatar = JSON.stringify( gitch.gravatar );
   var id = JSON.stringify( gitch.latlon );
 
   if (markers[id]) {
 
     var popupcontent = markers[id].getPopup().getContent();
-    markers[id].getPopup().setContent(
-      popupcontent + '<br>' +
-      gitch.gravatar.link('https://github.com/' + gitch.github )
-    );
+    markers[id].getPopup().setContent( popupcontent + '<br>' +
+      gitch.name.link('https://github.com/' + gitch.github ));
 
   } else {
 
     var marker = L.marker( gitch.latlon, {icon: monstrIcon} );
-    marker.bindPopup( gitch.gravatar.link('https://github.com/' + gitch.github) );
+    marker.bindPopup( gitch.name.link('https://github.com/' + gitch.github) );
     marker.addTo(map);
 
     markers[id] = marker;
