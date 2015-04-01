@@ -28,6 +28,14 @@ for (var i = 0; i < gitches.length; i++) {
   var gitch = gitches[i];
   var id = JSON.stringify( gitch.latlon );
 
+  var gitchIcon = L.icon({
+  iconUrl: gitch.gravatar,
+
+  iconSize:     [50, 50],
+  iconAnchor:   [25, 25],
+  popupAnchor:  [0, -25]
+  });
+
   if (markers[id]) {
 
     var popupcontent = markers[id].getPopup().getContent();
@@ -36,8 +44,8 @@ for (var i = 0; i < gitches.length; i++) {
 
   } else {
 
-    var marker = L.marker( gitch.latlon, {icon: monstrIcon} );
-    marker.bindPopup( gitch.name.link('https://github.com/' + gitch.github) + '<br><img src="' + gitch.gravatar + '"> );
+    var marker = L.marker( gitch.latlon, {icon: gitchIcon} );
+    marker.bindPopup( gitch.name.link('https://github.com/' + gitch.github) );
     marker.addTo(map);
 
     markers[id] = marker;
