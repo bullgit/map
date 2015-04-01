@@ -34,7 +34,7 @@ for (var i = 0; i < gitches.length; i++) {
     var popupcontent = markers[id].getPopup().getContent();
     markers[id].getPopup().setContent(
       popupcontent + '<br>' +
-      gitch.name.link('https://github.com/' + gitch.github )
+      gitch.gravatar.link('https://github.com/' + gitch.github )
     );
 
   } else {
