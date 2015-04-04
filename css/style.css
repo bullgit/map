@@ -14,7 +14,7 @@ html, body, #map {
   height: 100px;
   bottom: 0;
   left: 0;
-  background: url(img/bullgit_r30.svg)no-repeat center center;
+  background: url(../img/bullgit_r30.svg)no-repeat center center;
   background-size: 80%;
   display: block;
   z-index: 99999;
