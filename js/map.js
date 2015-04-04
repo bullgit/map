@@ -14,7 +14,7 @@ popupAnchor:  [0, -35]
 
 // get locations of tha gitches via ajax
 var xhr = new XMLHttpRequest();
-xhr.open('GET', 'members.json');
+xhr.open('GET', '/members.json');
 xhr.send();
 
 var markers = {};
