@@ -12,4 +12,3 @@ view the map at http://bullg.it/map
 
 - [Leaflet](http://leafletjs.com/)
 - [OpenStreetMap](http://www.openstreetmap.org) Tiles
-- [iconmonstr](http://iconmonstr.com) Location Icon
