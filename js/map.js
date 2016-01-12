@@ -1,8 +1,7 @@
 var map = L.map('map').setView([30, -20], 3);
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('http://a.tile.stamen.com/toner/{z}/{x}/{y}' + (L.Browser.retina ? '@2x' : '') + '.png', {
   attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-  maxZoom: 18,
-  detectRetina: true
+  maxZoom: 18
 }).addTo(map);
 
 var monstrIcon = L.icon({
@@ -15,7 +14,7 @@ var monstrIcon = L.icon({
 
 // get locations of tha gitches via ajax
 var xhr = new XMLHttpRequest();
-xhr.open('GET', '/members.json');
+xhr.open('GET', 'https://bullg.it/members.json');
 xhr.send();
 
 var markers = {};
