@@ -1,58 +1,58 @@
 var map = L.map('map').setView([30, -20], 3);
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-maxZoom: 18
+L.tileLayer('http://a.tile.stamen.com/terrain/{z}/{x}/{y}' + (L.Browser.retina ? '@2x' : '') + '.png', {
+  attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+  maxZoom: 18
 }).addTo(map);
 
 var monstrIcon = L.icon({
-iconUrl: 'img/iconmonstr-location-icon-32.png',
+  iconUrl: 'img/iconmonstr-location-icon-32.png',
 
-iconSize:     [32, 32],
-iconAnchor:   [16, 32],
-popupAnchor:  [0, -35]
+  iconSize:     [32, 32],
+  iconAnchor:   [16, 32],
+  popupAnchor:  [0, -35]
 });
 
 // get locations of tha gitches via ajax
 var xhr = new XMLHttpRequest();
-xhr.open('GET', '/members.json');
+xhr.open('GET', 'https://bullg.it/members.json');
 xhr.send();
 
 var markers = {};
 
 xhr.onload = function() {
 
-var gitches = JSON.parse( xhr.responseText ).gitches;
+  var gitches = JSON.parse( xhr.responseText ).gitches;
 
-for (var i = 0; i < gitches.length; i++) {
+  for (var i = 0; i < gitches.length; i++) {
 
-  var gitch = gitches[i];
-  var id = JSON.stringify( gitch.latlon );
+    var gitch = gitches[i];
+    var id = JSON.stringify( gitch.latlon );
 
-  var gitchIcon = L.icon({
-  iconUrl: gitch.gravatar,
+    var gitchIcon = L.icon({
+      iconUrl: gitch.gravatar,
 
-  iconSize:     [50, 50],
-  iconAnchor:   [25, 25],
-  popupAnchor:  [0, -25]
-  });
+      iconSize:     [50, 50],
+      iconAnchor:   [25, 25],
+      popupAnchor:  [0, -25]
+    });
 
-  if (markers[id]) {
+    if (markers[id]) {
 
-    var popupcontent = markers[id].getPopup().getContent();
-    markers[id].getPopup().setContent( popupcontent + '<br>' +
-      gitch.name.link('https://github.com/' + gitch.github ));
+      var popupcontent = markers[id].getPopup().getContent();
+      markers[id].getPopup().setContent( popupcontent + '<br>' +
+        gitch.name.link('https://github.com/' + gitch.github ));
 
-  } else {
+    } else {
 
-    var marker = L.marker( gitch.latlon, {icon: gitchIcon} );
-    marker.bindPopup( gitch.name.link('https://github.com/' + gitch.github) );
-    marker.addTo(map);
+      var marker = L.marker( gitch.latlon, {icon: gitchIcon} );
+      marker.bindPopup( gitch.name.link('https://github.com/' + gitch.github) );
+      marker.addTo(map);
 
-    markers[id] = marker;
+      markers[id] = marker;
+
+    }
 
   }
-
-}
 
 }
 
