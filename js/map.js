@@ -1,5 +1,5 @@
 var map = L.map('map').setView([30, -20], 3);
-L.tileLayer('http://a.tile.stamen.com/toner/{z}/{x}/{y}' + (L.Browser.retina ? '@2x' : '') + '.png', {
+L.tileLayer('http://a.tile.stamen.com/terrain/{z}/{x}/{y}' + (L.Browser.retina ? '@2x' : '') + '.png', {
   attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
   maxZoom: 18
 }).addTo(map);
