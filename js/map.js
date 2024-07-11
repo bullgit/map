@@ -1,9 +1,9 @@
 const map = L.map("map").setView([30, -20], 3);
 const retina = L.Browser.retina ? "@2x" : "";
 
-L.tileLayer(`http://a.tile.stamen.com/terrain/{z}/{x}/{y}${retina}.png`, {
+L.tileLayer(`https://api.maptiler.com/maps/aquarelle/{z}/{x}/{y}${retina}.webp?key=h0JuFeiJrkj12uEiTYmI`, {
   attribution:
-    'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+    '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
   maxZoom: 18
 }).addTo(map);
 
